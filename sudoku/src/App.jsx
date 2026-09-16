@@ -16,21 +16,34 @@ function App() {
         <div>
           <h1>SUDOKU, BABY!</h1>
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            A <strong>better</strong> place to work your sudoku puzzles.
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
 
-      <div className="ticks"></div>
-
       <section id="next-steps">
+
+        {/* Maybe use this as a template for a "candidate" component  */}
+        <div className="button">
+          <button
+            type="button"
+            className="counter"
+            onClick={() => setCount(
+              (count) => {
+                  if (count == "") {
+                    count = 1;
+                  } else if (count == 9) {
+                    count = "";
+                  } else {
+                    count ++;
+                  }
+                  return count;
+                }
+            )}
+          >
+            {count}
+          </button>
+        </div>
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
